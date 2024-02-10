@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400;1,700&family=Fraunces:ital,opsz@0,9..144;1,9..144&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,900;1,400;1,900&family=Fraunces:ital,opsz@0,9..144;1,9..144&display=swap");
 @import url("./assets/styles/_shared.scss");
 
 html {
@@ -25,11 +25,13 @@ h3 {
 h4 {
   @apply text-xl;
 }
+
 h1,
 h2,
 h3,
-h3 {
-  @apply font-fraunces;
+h3,
+h4 {
+  @apply font-fraunces font-black;
 }
 
 menu {
