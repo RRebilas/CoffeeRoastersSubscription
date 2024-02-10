@@ -4,6 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export const initializeIcons = () => {
   addIcon('icon-coffee-beans', 'shared');
+  addIcon('logo', 'shared');
+  addIcon('icon-facebook', 'shared');
+  addIcon('icon-instagram', 'shared');
+  addIcon('icon-twitter', 'shared');
 };
 
 export const addIcon = (
