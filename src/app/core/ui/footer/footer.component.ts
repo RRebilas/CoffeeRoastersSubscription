@@ -1,13 +1,25 @@
-import { NgTemplateOutlet } from '@angular/common';
+import { NgClass, NgStyle, NgTemplateOutlet } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'crs-footer',
   standalone: true,
-  imports: [MatIcon, NgTemplateOutlet],
+  imports: [MatIcon, NgTemplateOutlet, NgClass, NgStyle],
   templateUrl: './footer.component.html',
-  styles: `mat-icon {width: 27px; height: 27px; font-size: 27px}`,
+  styles: [
+    `
+      mat-icon {
+        width: 27px;
+        height: 27px;
+        font-size: 27px;
+      }
+
+      mat-icon:hover {
+        fill: #fdd6ba;
+      }
+    `,
+  ],
 })
 export class FooterComponent {
   links: Link[] = [
