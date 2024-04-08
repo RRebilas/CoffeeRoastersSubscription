@@ -8,6 +8,8 @@ export const initializeIcons = () => {
   addIcon('icon-facebook', 'shared');
   addIcon('icon-instagram', 'shared');
   addIcon('icon-twitter', 'shared');
+  addIcon('icon-hamburger', 'shared', 'mobile');
+  addIcon('icon-close', 'shared', 'mobile');
 };
 
 export const addIcon = (

@@ -1,0 +1,43 @@
+<div [ngClass]="['flex', 'justify-between', 'centered', 'mb-10']">
+  <div class="flex gap-2 centered">
+    <mat-icon class="logo" svgIcon="coffee-beans"></mat-icon>
+    <h4 class="text-grey">cofeeroasters</h4>
+  </div>
+
+  <div class="flex centered">
+    @if (isSmallScreen$ | async) {
+    <ng-container [ngTemplateOutlet]="mobileMenu"></ng-container>
+    } @else {
+    <ng-container [ngTemplateOutlet]="linksContainer"></ng-container>
+    }
+  </div>
+</div>
+
+<ng-template #linksContainer>
+  <div [ngClass]="['flex flex-col centered gap-8', 'md:flex-row']">
+    @for (item of links; track $index) {
+    <a class="text-xl md:text-menu" [routerLink]="item.link">{{
+      item.content
+    }}</a>
+    }
+  </div>
+</ng-template>
+
+<ng-template #mobileMenu>
+  <mat-icon
+    [svgIcon]="isMenuOpen ? 'close' : 'hamburger'"
+    (click)="isMenuOpen = !isMenuOpen"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+  ></mat-icon>
+
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isMenuOpen"
+  >
+    <ul class="example-list pt-20">
+      <ng-container [ngTemplateOutlet]="linksContainer"></ng-container>
+    </ul>
+  </ng-template>
+</ng-template>
