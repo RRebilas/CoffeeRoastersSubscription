@@ -1,0 +1,741 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "Link",
+            "id": "interface-Link-45ccd452ecf7ca77e5f06aa2c66d209cb85bdc26037735d5aa6758123c99decaaffbff919820f1d42be95a0200e72991b903e900dd753974d90e3904f51ece32",
+            "file": "src/app/shared/data-access/models/link.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface Link {\n  content: string;\n  link: string;\n}\n",
+            "properties": [
+                {
+                    "name": "content",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "link",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        }
+    ],
+    "injectables": [],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-384f2a56c6a2ba598e27e36d2b89238b53798b638a9328df05d56fbcdf447b1b8e7be72ace80235de51f60f68e071e8ec817065e1c05ca2324952b7c1adb0c87",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'CoffeeRoastersSubscription'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "RouterOutlet"
+                },
+                {
+                    "name": "FooterComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "HeaderComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "MatIconModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { MatIconModule } from '@angular/material/icon';\nimport { RouterOutlet } from '@angular/router';\nimport { FooterComponent } from './core/ui/footer/footer.component';\nimport { HeaderComponent } from './core/ui/header/header.component';\nimport { initializeIcons } from './core/utils/custom-icons';\n\n@Component({\n  selector: 'app-root',\n  standalone: true,\n  imports: [\n    CommonModule,\n    RouterOutlet,\n    FooterComponent,\n    HeaderComponent,\n    MatIconModule,\n  ],\n  templateUrl: './app.component.html',\n  styleUrl: './app.component.scss',\n})\nexport class AppComponent {\n  title = 'CoffeeRoastersSubscription';\n  constructor() {\n    initializeIcons();\n  }\n}\n",
+            "styleUrl": "./app.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 23
+            },
+            "extends": [],
+            "templateData": "<crs-header></crs-header><router-outlet></router-outlet> <crs-footer></crs-footer>\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-9f2e4ddfc3eb26a427191880b703decab0f9a48f8cd738ef581c5957ac81000a380c4d7ab97e0a6b8dd2dc06f5cacd1f48580eb8d801afd9f3a50ac5631af2e3",
+            "file": "src/app/shared/ui/button/button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "crs-button",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "required": true,
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgClass } from '@angular/common';\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'crs-button',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './button.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent {\n  @Input({ required: true }) label: string;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n",
+            "extends": [],
+            "templateData": "<button\n  [ngClass]=\"[\n    'w-[217px]',\n    'h-[56px]',\n    'text-button',\n    'bg-dark-grey-blue',\n    'text-light-cream',\n    'rounded-md',\n    'centered',\n    'hover:bg-[#66D2CF]',\n    'disabled:bg-disabled'\n  ]\"\n>\n  {{ label }}\n</button>\n"
+        },
+        {
+            "name": "FooterComponent",
+            "id": "component-FooterComponent-d39d205b0efbf075a16691b6a5b7cbfe4770fd19ea246794f1c5c140581ba7f98a3ed3f4b3d28ae0acb718780438a99981c37430a48526ffaaa4e46b70e53a7b",
+            "file": "src/app/core/ui/footer/footer.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "crs-footer",
+            "styleUrls": [],
+            "styles": [
+                "\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    "
+            ],
+            "templateUrl": [
+                "./footer.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "icons",
+                    "defaultValue": "['facebook', 'instagram', 'twitter']",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 40
+                },
+                {
+                    "name": "links",
+                    "defaultValue": "[\n    {\n      name: 'home',\n      url: '',\n    },\n    {\n      name: 'about us',\n      url: '',\n    },\n    {\n      name: 'create your plan',\n      url: '',\n    },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Link[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "MatIcon"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\n\n@Component({\n  selector: 'crs-footer',\n  standalone: true,\n  imports: [MatIcon, CommonModule],\n  templateUrl: './footer.component.html',\n  styles: [\n    `\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    `,\n  ],\n})\nexport class FooterComponent {\n  links: Link[] = [\n    {\n      name: 'home',\n      url: '',\n    },\n    {\n      name: 'about us',\n      url: '',\n    },\n    {\n      name: 'create your plan',\n      url: '',\n    },\n  ];\n\n  icons = ['facebook', 'instagram', 'twitter'];\n}\n\ntype Link = {\n  name: string;\n  url: string;\n};\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    \n",
+            "extends": [],
+            "templateData": "<div\n  [ngClass]=\"[\n    'bg-dark-grey-blue',\n    'w-full',\n    'flex-col',\n    'p-14',\n    'gap-12',\n    'centered',\n    'lg:flex-row lg:justify-between lg:px-14 lg:py-12'\n  ]\"\n>\n  <div class=\"flex gap-2 centered\">\n    <mat-icon svgIcon=\"coffee-beans\"></mat-icon>\n    <h4 class=\"text-white\">cofeeroasters</h4>\n  </div>\n\n  <div\n    class=\"flex flex-col md:flex-row gap-6 md:gap-8 md:pb-8 lg:pb-0 centered\"\n  >\n    @for (item of links; track $index) {\n    <ng-container *ngTemplateOutlet=\"link; context: item\"></ng-container>\n    }\n  </div>\n\n  <div class=\"flex gap-6 centered\">\n    @for (icon of icons; track $index) {\n    <a class=\"hover:cursor-pointer\">\n      <mat-icon class=\"hover:fill-pale-orange\" svgIcon=\"{{ icon }}\"></mat-icon>\n    </a>\n    }\n  </div>\n</div>\n\n<ng-template #link let-name=\"name\" let-url=\"url\">\n  <a class=\"text-grey text-menu uppercase font-bold hover:cursor-pointer\">\n    {{ name }}\n  </a>\n</ng-template>\n"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-33ca264e26250091ecac497e24df81e32c69642b297bafe6dcedd431d61fc92e23293112dcb6e28b519d81a135a94ed3b399e97f735b1ab959a249c839d9b605",
+            "file": "src/app/core/ui/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "crs-header",
+            "styleUrls": [],
+            "styles": [
+                "\n      mat-icon.logo {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      [svgIcon='hamburger'] {\n        fill: #333d4b;\n        width: 16px;\n        height: 15px;\n      }\n\n      .example-list {\n        $leftRightMargin: 3rem;\n        width: calc(100svw - $leftRightMargin);\n        height: 50svh;\n        position: relative;\n        z-index: 1000;\n        background: linear-gradient(\n          180deg,\n          rgba(255, 255, 255, 1) 60%,\n          rgba(255, 255, 255, 0) 100%\n        );\n      }\n    "
+            ],
+            "templateUrl": [
+                "header.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isMenuOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 58
+                },
+                {
+                    "name": "isSmallScreen$",
+                    "defaultValue": "inject(BreakpointObserver)\n    .observe('(max-width: 767.98px)')\n    .pipe(\n      map((state) => state.matches),\n      tap((matching) => {\n        if (!matching) this.isMenuOpen = false;\n      }),\n    )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "<p>Observablethat tracks dimensions of window\nand decides wheter to display hamburger menu icon or not</p>\n",
+                    "line": 49,
+                    "rawdescription": "\n\nObservablethat tracks dimensions of window\nand decides wheter to display hamburger menu icon or not\n"
+                },
+                {
+                    "name": "links",
+                    "defaultValue": "[\n    { content: 'Home', link: '/home' },\n    { content: 'About us', link: '/about' },\n    { content: 'Create your plan', link: '/plans/create' },\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Link[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 60
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "OverlayModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatIcon"
+                },
+                {
+                    "name": "RouterLink"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { BreakpointObserver } from '@angular/cdk/layout';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CommonModule } from '@angular/common';\nimport { Component, inject } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\nimport { RouterLink } from '@angular/router';\nimport { map, tap } from 'rxjs';\nimport { Link } from '../../../shared/data-access/models';\n\n@Component({\n  selector: 'crs-header',\n  templateUrl: 'header.component.html',\n  standalone: true,\n  imports: [CommonModule, OverlayModule, MatIcon, RouterLink],\n  styles: [\n    `\n      mat-icon.logo {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      [svgIcon='hamburger'] {\n        fill: #333d4b;\n        width: 16px;\n        height: 15px;\n      }\n\n      .example-list {\n        $leftRightMargin: 3rem;\n        width: calc(100svw - $leftRightMargin);\n        height: 50svh;\n        position: relative;\n        z-index: 1000;\n        background: linear-gradient(\n          180deg,\n          rgba(255, 255, 255, 1) 60%,\n          rgba(255, 255, 255, 0) 100%\n        );\n      }\n    `,\n  ],\n})\nexport class HeaderComponent {\n  /**\n   * Observablethat tracks dimensions of window\n   * and decides wheter to display hamburger menu icon or not\n   */\n  isSmallScreen$ = inject(BreakpointObserver)\n    .observe('(max-width: 767.98px)')\n    .pipe(\n      map((state) => state.matches),\n      tap((matching) => {\n        if (!matching) this.isMenuOpen = false;\n      }),\n    );\n\n  isMenuOpen: boolean = false;\n\n  links: Link[] = [\n    { content: 'Home', link: '/home' },\n    { content: 'About us', link: '/about' },\n    { content: 'Create your plan', link: '/plans/create' },\n  ];\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      mat-icon.logo {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      [svgIcon='hamburger'] {\n        fill: #333d4b;\n        width: 16px;\n        height: 15px;\n      }\n\n      .example-list {\n        $leftRightMargin: 3rem;\n        width: calc(100svw - $leftRightMargin);\n        height: 50svh;\n        position: relative;\n        z-index: 1000;\n        background: linear-gradient(\n          180deg,\n          rgba(255, 255, 255, 1) 60%,\n          rgba(255, 255, 255, 0) 100%\n        );\n      }\n    \n",
+            "extends": [],
+            "templateData": "<div [ngClass]=\"['flex', 'justify-between', 'centered', 'mb-10']\">\n  <div class=\"flex gap-2 centered\">\n    <mat-icon class=\"logo\" svgIcon=\"coffee-beans\"></mat-icon>\n    <h4 class=\"text-grey\">cofeeroasters</h4>\n  </div>\n\n  <div class=\"flex centered\">\n    @if (isSmallScreen$ | async) {\n    <ng-container [ngTemplateOutlet]=\"mobileMenu\"></ng-container>\n    } @else {\n    <ng-container [ngTemplateOutlet]=\"linksContainer\"></ng-container>\n    }\n  </div>\n</div>\n\n<ng-template #linksContainer>\n  <div [ngClass]=\"['flex flex-col centered gap-8', 'md:flex-row']\">\n    @for (item of links; track $index) {\n    <a class=\"text-xl md:text-menu\" [routerLink]=\"item.link\">{{\n      item.content\n    }}</a>\n    }\n  </div>\n</ng-template>\n\n<ng-template #mobileMenu>\n  <mat-icon\n    [svgIcon]=\"isMenuOpen ? 'close' : 'hamburger'\"\n    (click)=\"isMenuOpen = !isMenuOpen\"\n    cdkOverlayOrigin\n    #trigger=\"cdkOverlayOrigin\"\n  ></mat-icon>\n\n  <ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"trigger\"\n    [cdkConnectedOverlayOpen]=\"isMenuOpen\"\n  >\n    <ul class=\"example-list pt-20\">\n      <ng-container [ngTemplateOutlet]=\"linksContainer\"></ng-container>\n    </ul>\n  </ng-template>\n</ng-template>\n"
+        },
+        {
+            "name": "SelectOptionComponent",
+            "id": "component-SelectOptionComponent-cbf8110b091aab10bd4adb23cf9f10b492dea167f11e92f62b36fef154233c6aa5176467faef3252b8ae35de24951de334e98aeb7ba81fe8244ed05be160ed29",
+            "file": "src/app/shared/ui/select-option/select-option.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "crs-select-option",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "templateUrl": [
+                "./select-option.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "required": true,
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "option",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "required": true,
+                    "name": "optionLabel",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "optional": false,
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "required": false,
+                    "name": "selected",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "NgClass"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { NgClass } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  booleanAttribute,\n} from '@angular/core';\n\n@Component({\n  selector: 'crs-select-option',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './select-option.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectOptionComponent {\n  @Input({ required: true }) option: string;\n  @Input({ required: true }) optionLabel: string;\n  @Input({ required: true }) description: string;\n  @Input({ transform: booleanAttribute }) selected: boolean = false;\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n",
+            "extends": [],
+            "templateData": "<div\n  [class]=\"selected ? 'bg-dark-cyan text-white hover:text-dark-grey-blue' : ''\"\n  [ngClass]=\"[\n    'h-[140px] md:h-full',\n    'w-full',\n    'bg-[#f4f1eb]',\n    'hover:bg-pale-orange hover:text-base',\n    'py-6 px-[25px] md:pt-8 md:px-7',\n    'text-left',\n    'rounded-lg'\n  ]\"\n>\n  <h4 class=\"pb-6\">{{ optionLabel }}</h4>\n  <p>{{ description }}</p>\n</div>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "MatIconRegistryModule",
+            "id": "module-MatIconRegistryModule-a07bad65aa5c2528e1d18dc5619c7d469cbeb73cf2dde8dc49193ee1fcc14b281e0293fc6d0050d664ca3d1163fa2d3e6866cc25b9d0308554cd094e0e2b5373",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/stories/shared/mat-icon-registry.module.ts",
+            "methods": [],
+            "sourceCode": "import { HttpClientModule } from '@angular/common/http';\nimport { NgModule } from '@angular/core';\nimport { initializeIcons } from '../../app/core/utils/custom-icons';\n\n@NgModule({\n  imports: [HttpClientModule],\n})\nexport class MatIconRegistryModule {\n  constructor() {\n    initializeIcons();\n  }\n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "addIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/core/utils/custom-icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(\n  name: string,\n  module: 'home' | 'about' | 'plan' | 'shared',\n  device: 'desktop' | 'mobile' | 'tablet' = 'desktop',\n) => {\n  const iconRegistry = inject(MatIconRegistry);\n  const sanitizer = inject(DomSanitizer);\n\n  iconRegistry.addSvgIcon(\n    name.replace('icon-', ''),\n    sanitizer.bypassSecurityTrustResourceUrl(\n      `../../../assets/images/${module}/${device}/${name}.svg`,\n    ),\n  );\n}"
+            },
+            {
+                "name": "appConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\n  providers: [\n    provideHttpClient(withFetch()),\n    provideRouter(routes),\n    provideClientHydration(),\n  ],\n}"
+            },
+            {
+                "name": "bootstrap",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/main.server.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => bootstrapApplication(AppComponent, config)"
+            },
+            {
+                "name": "config",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.server.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
+            },
+            {
+                "name": "initializeIcons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/core/utils/custom-icons.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => {\n  addIcon('icon-coffee-beans', 'shared');\n  addIcon('logo', 'shared');\n  addIcon('icon-facebook', 'shared');\n  addIcon('icon-instagram', 'shared');\n  addIcon('icon-twitter', 'shared');\n  addIcon('icon-hamburger', 'shared', 'mobile');\n  addIcon('icon-close', 'shared', 'mobile');\n}"
+            },
+            {
+                "name": "serverConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.config.server.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ApplicationConfig",
+                "defaultValue": "{\n  providers: [\n    provideServerRendering()\n  ]\n}"
+            }
+        ],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "Link",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/core/ui/footer/footer.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/core/utils/custom-icons.ts": [
+                {
+                    "name": "addIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/core/utils/custom-icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(\n  name: string,\n  module: 'home' | 'about' | 'plan' | 'shared',\n  device: 'desktop' | 'mobile' | 'tablet' = 'desktop',\n) => {\n  const iconRegistry = inject(MatIconRegistry);\n  const sanitizer = inject(DomSanitizer);\n\n  iconRegistry.addSvgIcon(\n    name.replace('icon-', ''),\n    sanitizer.bypassSecurityTrustResourceUrl(\n      `../../../assets/images/${module}/${device}/${name}.svg`,\n    ),\n  );\n}"
+                },
+                {
+                    "name": "initializeIcons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/core/utils/custom-icons.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => {\n  addIcon('icon-coffee-beans', 'shared');\n  addIcon('logo', 'shared');\n  addIcon('icon-facebook', 'shared');\n  addIcon('icon-instagram', 'shared');\n  addIcon('icon-twitter', 'shared');\n  addIcon('icon-hamburger', 'shared', 'mobile');\n  addIcon('icon-close', 'shared', 'mobile');\n}"
+                }
+            ],
+            "src/app/app.config.ts": [
+                {
+                    "name": "appConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\n  providers: [\n    provideHttpClient(withFetch()),\n    provideRouter(routes),\n    provideClientHydration(),\n  ],\n}"
+                }
+            ],
+            "src/main.server.ts": [
+                {
+                    "name": "bootstrap",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/main.server.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => bootstrapApplication(AppComponent, config)"
+                }
+            ],
+            "src/app/app.config.server.ts": [
+                {
+                    "name": "config",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.server.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "mergeApplicationConfig(appConfig, serverConfig)"
+                },
+                {
+                    "name": "serverConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.config.server.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ApplicationConfig",
+                    "defaultValue": "{\n  providers: [\n    provideServerRendering()\n  ]\n}"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/app/core/ui/footer/footer.component.ts": [
+                {
+                    "name": "Link",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/core/ui/footer/footer.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ]
+        }
+    },
+    "routes": [],
+    "coverage": {
+        "count": 2,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.server.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "config",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.server.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "serverConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "appConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/ui/footer/footer.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FooterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/ui/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 25,
+                "coverageCount": "1/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/utils/custom-icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/core/utils/custom-icons.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "initializeIcons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/data-access/models/link.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "Link",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/select-option/select-option.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SelectOptionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/main.server.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "bootstrap",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}

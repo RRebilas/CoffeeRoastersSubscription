@@ -15,7 +15,7 @@ export const initializeIcons = () => {
 export const addIcon = (
   name: string,
   module: 'home' | 'about' | 'plan' | 'shared',
-  device: 'desktop' | 'mobile' | 'tablet' = 'desktop'
+  device: 'desktop' | 'mobile' | 'tablet' = 'desktop',
 ) => {
   const iconRegistry = inject(MatIconRegistry);
   const sanitizer = inject(DomSanitizer);
@@ -23,7 +23,7 @@ export const addIcon = (
   iconRegistry.addSvgIcon(
     name.replace('icon-', ''),
     sanitizer.bypassSecurityTrustResourceUrl(
-      `../../../assets/images/${module}/${device}/${name}.svg`
-    )
+      `../../../assets/images/${module}/${device}/${name}.svg`,
+    ),
   );
 };

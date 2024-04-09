@@ -1,11 +1,11 @@
-import { NgClass, NgStyle, NgTemplateOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'crs-footer',
   standalone: true,
-  imports: [MatIcon, NgTemplateOutlet, NgClass, NgStyle],
+  imports: [MatIcon, CommonModule],
   templateUrl: './footer.component.html',
   styles: [
     `
