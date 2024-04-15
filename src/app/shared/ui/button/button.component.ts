@@ -1,5 +1,10 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  booleanAttribute,
+} from '@angular/core';
 
 @Component({
   selector: 'crs-button',
@@ -11,4 +16,5 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input({ required: true }) label: string;
+  @Input({ transform: booleanAttribute }) disabled: boolean;
 }

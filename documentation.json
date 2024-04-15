@@ -243,7 +243,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-33ca264e26250091ecac497e24df81e32c69642b297bafe6dcedd431d61fc92e23293112dcb6e28b519d81a135a94ed3b399e97f735b1ab959a249c839d9b605",
+            "id": "component-HeaderComponent-4d2f9c1656471ed4333e1b1bd3ae300294a5d52976292ecaf44918d9ee0e33757615daf0b61609fe2a0d1303de3e818d711f8621b3a8001c20ee8bca8668ea2b",
             "file": "src/app/core/ui/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -270,8 +270,45 @@
                     "deprecationMessage": "",
                     "type": "boolean",
                     "optional": false,
-                    "description": "",
-                    "line": 58
+                    "description": "<p>attribute that tells, wheter to open overlay menu or not</p>\n<p>Set to false, if user open/closes menu manually,\nor if screen goes wider and hamburger icon menu is being hidden</p>\n",
+                    "line": 66,
+                    "rawdescription": "\n\nattribute that tells, wheter to open overlay menu or not\n\nSet to false, if user open/closes menu manually,\nor if screen goes wider and hamburger icon menu is being hidden\n",
+                    "jsdoctags": [
+                        {
+                            "pos": 1536,
+                            "end": 1743,
+                            "flags": 16842752,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 351,
+                            "tagName": {
+                                "pos": 1537,
+                                "end": 1541,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "type"
+                            },
+                            "comment": "<p>attribute that tells, wheter to open overlay menu or not</p>\n<p>Set to false, if user open/closes menu manually,\nor if screen goes wider and hamburger icon menu is being hidden</p>\n",
+                            "typeExpression": {
+                                "pos": 1542,
+                                "end": 1549,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 316,
+                                "type": {
+                                    "pos": 1542,
+                                    "end": 1549,
+                                    "flags": 16777216,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 1,
+                                    "kind": 136
+                                }
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "isSmallScreen$",
@@ -280,9 +317,54 @@
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
-                    "description": "<p>Observablethat tracks dimensions of window\nand decides wheter to display hamburger menu icon or not</p>\n",
-                    "line": 49,
-                    "rawdescription": "\n\nObservablethat tracks dimensions of window\nand decides wheter to display hamburger menu icon or not\n"
+                    "description": "<p>Observable that tracks dimensions of window\nand decides wheter to display hamburger menu icon or not</p>\n",
+                    "line": 50,
+                    "rawdescription": "\n\nObservable that tracks dimensions of window\nand decides wheter to display hamburger menu icon or not\n",
+                    "jsdoctags": [
+                        {
+                            "pos": 1167,
+                            "end": 1298,
+                            "flags": 16842752,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 351,
+                            "tagName": {
+                                "pos": 1168,
+                                "end": 1172,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 80,
+                                "escapedText": "type"
+                            },
+                            "comment": "<p>Observable that tracks dimensions of window\nand decides wheter to display hamburger menu icon or not</p>\n",
+                            "typeExpression": {
+                                "pos": 1173,
+                                "end": 1183,
+                                "flags": 16842752,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 316,
+                                "type": {
+                                    "pos": 1173,
+                                    "end": 1183,
+                                    "flags": 16777216,
+                                    "modifierFlagsCache": 0,
+                                    "transformFlags": 1,
+                                    "kind": 183,
+                                    "typeName": {
+                                        "pos": 1173,
+                                        "end": 1183,
+                                        "flags": 16777216,
+                                        "modifierFlagsCache": 0,
+                                        "transformFlags": 0,
+                                        "kind": 80,
+                                        "escapedText": "Observable"
+                                    }
+                                }
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "links",
@@ -292,7 +374,7 @@
                     "type": "Link[]",
                     "optional": false,
                     "description": "",
-                    "line": 60
+                    "line": 68
                 }
             ],
             "methodsClass": [],
@@ -320,7 +402,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { BreakpointObserver } from '@angular/cdk/layout';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CommonModule } from '@angular/common';\nimport { Component, inject } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\nimport { RouterLink } from '@angular/router';\nimport { map, tap } from 'rxjs';\nimport { Link } from '../../../shared/data-access/models';\n\n@Component({\n  selector: 'crs-header',\n  templateUrl: 'header.component.html',\n  standalone: true,\n  imports: [CommonModule, OverlayModule, MatIcon, RouterLink],\n  styles: [\n    `\n      mat-icon.logo {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      [svgIcon='hamburger'] {\n        fill: #333d4b;\n        width: 16px;\n        height: 15px;\n      }\n\n      .example-list {\n        $leftRightMargin: 3rem;\n        width: calc(100svw - $leftRightMargin);\n        height: 50svh;\n        position: relative;\n        z-index: 1000;\n        background: linear-gradient(\n          180deg,\n          rgba(255, 255, 255, 1) 60%,\n          rgba(255, 255, 255, 0) 100%\n        );\n      }\n    `,\n  ],\n})\nexport class HeaderComponent {\n  /**\n   * Observablethat tracks dimensions of window\n   * and decides wheter to display hamburger menu icon or not\n   */\n  isSmallScreen$ = inject(BreakpointObserver)\n    .observe('(max-width: 767.98px)')\n    .pipe(\n      map((state) => state.matches),\n      tap((matching) => {\n        if (!matching) this.isMenuOpen = false;\n      }),\n    );\n\n  isMenuOpen: boolean = false;\n\n  links: Link[] = [\n    { content: 'Home', link: '/home' },\n    { content: 'About us', link: '/about' },\n    { content: 'Create your plan', link: '/plans/create' },\n  ];\n}\n",
+            "sourceCode": "import { BreakpointObserver } from '@angular/cdk/layout';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CommonModule } from '@angular/common';\nimport { Component, inject } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\nimport { RouterLink } from '@angular/router';\nimport { map, tap } from 'rxjs';\nimport { Link } from '../../../shared/data-access/models';\n\n@Component({\n  selector: 'crs-header',\n  templateUrl: 'header.component.html',\n  standalone: true,\n  imports: [CommonModule, OverlayModule, MatIcon, RouterLink],\n  styles: [\n    `\n      mat-icon.logo {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      [svgIcon='hamburger'] {\n        fill: #333d4b;\n        width: 16px;\n        height: 15px;\n      }\n\n      .example-list {\n        $leftRightMargin: 3rem;\n        width: calc(100svw - $leftRightMargin);\n        height: 50svh;\n        position: relative;\n        z-index: 1000;\n        background: linear-gradient(\n          180deg,\n          rgba(255, 255, 255, 1) 60%,\n          rgba(255, 255, 255, 0) 100%\n        );\n      }\n    `,\n  ],\n})\nexport class HeaderComponent {\n  /**\n   * @type Observable\n   * Observable that tracks dimensions of window\n   * and decides wheter to display hamburger menu icon or not\n   */\n  isSmallScreen$ = inject(BreakpointObserver)\n    .observe('(max-width: 767.98px)')\n    .pipe(\n      map((state) => state.matches),\n      tap((matching) => {\n        if (!matching) this.isMenuOpen = false;\n      }),\n    );\n\n  /**\n   * @type boolean\n   * attribute that tells, wheter to open overlay menu or not\n   *\n   * Set to false, if user open/closes menu manually,\n   * or if screen goes wider and hamburger icon menu is being hidden\n   */\n  isMenuOpen: boolean = false;\n\n  links: Link[] = [\n    { content: 'Home', link: '/home' },\n    { content: 'About us', link: '/about' },\n    { content: 'Create your plan', link: '/plans/create' },\n  ];\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n      mat-icon.logo {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      [svgIcon='hamburger'] {\n        fill: #333d4b;\n        width: 16px;\n        height: 15px;\n      }\n\n      .example-list {\n        $leftRightMargin: 3rem;\n        width: calc(100svw - $leftRightMargin);\n        height: 50svh;\n        position: relative;\n        z-index: 1000;\n        background: linear-gradient(\n          180deg,\n          rgba(255, 255, 255, 1) 60%,\n          rgba(255, 255, 255, 0) 100%\n        );\n      }\n    \n",
@@ -619,7 +701,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 2,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -675,9 +757,9 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "HeaderComponent",
-                "coveragePercent": 25,
-                "coverageCount": "1/4",
-                "status": "low"
+                "coveragePercent": 50,
+                "coverageCount": "2/4",
+                "status": "medium"
             },
             {
                 "filePath": "src/app/core/utils/custom-icons.ts",

@@ -2,7 +2,9 @@ import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
+  Output,
   booleanAttribute,
 } from '@angular/core';
 
@@ -15,8 +17,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectOptionComponent {
-  @Input({ required: true }) option: string;
+  /**
+   * @type string
+   * uniquely identify option from others
+   */
+  @Input({ required: true }) id: string;
   @Input({ required: true }) optionLabel: string;
   @Input({ required: true }) description: string;
   @Input({ transform: booleanAttribute }) selected: boolean = false;
+
+  @Output() select: EventEmitter<string> = new EventEmitter();
 }
