@@ -2,10 +2,9 @@ import { NgClass } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Input,
-  Output,
-  booleanAttribute,
+  HostListener,
+  input,
+  output,
 } from '@angular/core';
 
 @Component({
@@ -13,18 +12,34 @@ import {
   standalone: true,
   imports: [NgClass],
   templateUrl: './select-option.component.html',
-  styles: ``,
+  styles: `
+    :host {
+      flex: 1;
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectOptionComponent {
   /**
-   * @type string
    * uniquely identify option from others
    */
-  @Input({ required: true }) id: string;
-  @Input({ required: true }) optionLabel: string;
-  @Input({ required: true }) description: string;
-  @Input({ transform: booleanAttribute }) selected: boolean = false;
+  id = input.required<string>();
+  optionLabel = input.required<string>();
+  description = input.required<string>();
+  selected = input(false, {
+    transform: (value: boolean | string) =>
+      typeof value === 'string' ? value === '' : value,
+  });
 
-  @Output() select: EventEmitter<string> = new EventEmitter();
+  select = output<string>();
+
+  @HostListener('click') onSelectOption() {
+    this.select.emit(this.id());
+  }
 }
+
+export type SelectionOptionModel = {
+  id: string;
+  optionLabel: string;
+  description: string;
+};

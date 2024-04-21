@@ -1,0 +1,13 @@
+<div
+  [ngClass]="['flex', 'flex-col', 'gap-4', 'justify-between', 'md:flex-row']"
+>
+  @for (item of options(); track $index) {
+    <crs-select-option
+      [id]="item.id"
+      [optionLabel]="item.optionLabel"
+      [description]="item.description"
+      [selected]="formField?.value === item.id"
+      (select)="onOptionSelect($event)"
+    />
+  }
+</div>

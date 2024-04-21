@@ -120,7 +120,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-9f2e4ddfc3eb26a427191880b703decab0f9a48f8cd738ef581c5957ac81000a380c4d7ab97e0a6b8dd2dc06f5cacd1f48580eb8d801afd9f3a50ac5631af2e3",
+            "id": "component-ButtonComponent-5ec6433013d9c6c93c00c4237be7665af1c9003b998154c495a040e8d375c72f24a1a74a1c283a1b595be02fb6587b1a3e28dfb08d2ff4474fbab4e9545dd80f",
             "file": "src/app/shared/ui/button/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -140,12 +140,21 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "required": false,
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
                     "required": true,
                     "name": "label",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "optional": false,
-                    "line": 13,
+                    "line": 18,
                     "type": "string",
                     "decorators": []
                 }
@@ -166,12 +175,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgClass } from '@angular/common';\nimport { ChangeDetectionStrategy, Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'crs-button',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './button.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent {\n  @Input({ required: true }) label: string;\n}\n",
+            "sourceCode": "import { NgClass } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  booleanAttribute,\n} from '@angular/core';\n\n@Component({\n  selector: 'crs-button',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './button.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ButtonComponent {\n  @Input({ required: true }) label: string;\n  @Input({ transform: booleanAttribute }) disabled: boolean;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n",
             "extends": [],
-            "templateData": "<button\n  [ngClass]=\"[\n    'w-[217px]',\n    'h-[56px]',\n    'text-button',\n    'bg-dark-grey-blue',\n    'text-light-cream',\n    'rounded-md',\n    'centered',\n    'hover:bg-[#66D2CF]',\n    'disabled:bg-disabled'\n  ]\"\n>\n  {{ label }}\n</button>\n"
+            "templateData": "<button\n  [ngClass]=\"[\n    'w-[217px]',\n    'h-[56px]',\n    'text-button',\n    'bg-dark-cyan',\n    'text-light-cream',\n    'rounded-md',\n    'centered',\n    'hover:bg-[#66D2CF]',\n    'disabled:bg-disabled'\n  ]\"\n  [disabled]=\"disabled\"\n>\n  {{ label }}\n</button>\n"
         },
         {
             "name": "FooterComponent",
@@ -410,8 +419,118 @@
             "templateData": "<div [ngClass]=\"['flex', 'justify-between', 'centered', 'mb-10']\">\n  <div class=\"flex gap-2 centered\">\n    <mat-icon class=\"logo\" svgIcon=\"coffee-beans\"></mat-icon>\n    <h4 class=\"text-grey\">cofeeroasters</h4>\n  </div>\n\n  <div class=\"flex centered\">\n    @if (isSmallScreen$ | async) {\n    <ng-container [ngTemplateOutlet]=\"mobileMenu\"></ng-container>\n    } @else {\n    <ng-container [ngTemplateOutlet]=\"linksContainer\"></ng-container>\n    }\n  </div>\n</div>\n\n<ng-template #linksContainer>\n  <div [ngClass]=\"['flex flex-col centered gap-8', 'md:flex-row']\">\n    @for (item of links; track $index) {\n    <a class=\"text-xl md:text-menu\" [routerLink]=\"item.link\">{{\n      item.content\n    }}</a>\n    }\n  </div>\n</ng-template>\n\n<ng-template #mobileMenu>\n  <mat-icon\n    [svgIcon]=\"isMenuOpen ? 'close' : 'hamburger'\"\n    (click)=\"isMenuOpen = !isMenuOpen\"\n    cdkOverlayOrigin\n    #trigger=\"cdkOverlayOrigin\"\n  ></mat-icon>\n\n  <ng-template\n    cdkConnectedOverlay\n    [cdkConnectedOverlayOrigin]=\"trigger\"\n    [cdkConnectedOverlayOpen]=\"isMenuOpen\"\n  >\n    <ul class=\"example-list pt-20\">\n      <ng-container [ngTemplateOutlet]=\"linksContainer\"></ng-container>\n    </ul>\n  </ng-template>\n</ng-template>\n"
         },
         {
+            "name": "OptionGroupSelectorComponent",
+            "id": "component-OptionGroupSelectorComponent-4c1065547dbea50a061859aaaa6dedb42854f2a0f330c3cb646268c17754778fd7462c5aa6aa1b7cbc907f663aa23fccbb49774bfe18618275f776f2f6db35cc",
+            "file": "src/app/shared/ui/option-group-selector/option-group-selector.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "crs-option-group-selector",
+            "styleUrls": [],
+            "styles": [
+                "\n    :host {\n      width: 100%;\n    }\n  "
+            ],
+            "templateUrl": [
+                "./option-group-selector.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "formField",
+                    "defaultValue": "inject(ControlContainer).control",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "options",
+                    "defaultValue": "input.required<SelectionOptionModel[]>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onOptionSelect",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "SelectOptionComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ReactiveFormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, inject, input } from '@angular/core';\nimport { ControlContainer, ReactiveFormsModule } from '@angular/forms';\nimport {\n  SelectOptionComponent,\n  SelectionOptionModel,\n} from '../select-option/select-option.component';\n\n@Component({\n  selector: 'crs-option-group-selector',\n  standalone: true,\n  imports: [SelectOptionComponent, CommonModule, ReactiveFormsModule],\n  templateUrl: './option-group-selector.component.html',\n  styles: `\n    :host {\n      width: 100%;\n    }\n  `,\n})\nexport class OptionGroupSelectorComponent {\n  formField = inject(ControlContainer).control;\n  options = input.required<SelectionOptionModel[]>();\n\n  constructor() {\n    inject(ControlContainer).valueChanges?.subscribe(console.log);\n  }\n\n  onOptionSelect(id: string) {\n    this.formField?.value === id\n      ? this.formField.reset()\n      : this.formField?.setValue(id);\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n    :host {\n      width: 100%;\n    }\n  \n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 22
+            },
+            "extends": [],
+            "templateData": "<div\n  [ngClass]=\"['flex', 'flex-col', 'gap-4', 'justify-between', 'md:flex-row']\"\n>\n  @for (item of options(); track $index) {\n    <crs-select-option\n      [id]=\"item.id\"\n      [optionLabel]=\"item.optionLabel\"\n      [description]=\"item.description\"\n      [selected]=\"formField?.value === item.id\"\n      (select)=\"onOptionSelect($event)\"\n    />\n  }\n</div>\n"
+        },
+        {
             "name": "SelectOptionComponent",
-            "id": "component-SelectOptionComponent-cbf8110b091aab10bd4adb23cf9f10b492dea167f11e92f62b36fef154233c6aa5176467faef3252b8ae35de24951de334e98aeb7ba81fe8244ed05be160ed29",
+            "id": "component-SelectOptionComponent-e932a6496155db7bb5423a8a175e2b898bdc6616a2f2f05e29be51dd5d3df55190667811192fbefc2d236f4672ccab2b5f6be3a0512bb30155f1fbf276991ab1",
             "file": "src/app/shared/ui/select-option/select-option.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -422,62 +541,102 @@
             "selector": "crs-select-option",
             "styleUrls": [],
             "styles": [
-                ""
+                "\n    :host {\n      flex: 1;\n    }\n  "
             ],
             "templateUrl": [
                 "./select-option.component.html"
             ],
             "viewProviders": [],
             "hostDirectives": [],
-            "inputsClass": [
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
-                    "required": true,
                     "name": "description",
+                    "defaultValue": "input.required<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "type": "",
                     "optional": false,
-                    "line": 20,
-                    "type": "string",
-                    "decorators": []
+                    "description": "",
+                    "line": 28
                 },
                 {
-                    "required": true,
-                    "name": "option",
+                    "name": "id",
+                    "defaultValue": "input.required<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "type": "",
                     "optional": false,
-                    "line": 18,
-                    "type": "string",
-                    "decorators": []
+                    "description": "<p>uniquely identify option from others</p>\n",
+                    "line": 26,
+                    "rawdescription": "\n\nuniquely identify option from others\n"
                 },
                 {
-                    "required": true,
                     "name": "optionLabel",
+                    "defaultValue": "input.required<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
+                    "type": "",
                     "optional": false,
-                    "line": 19,
-                    "type": "string",
-                    "decorators": []
+                    "description": "",
+                    "line": 27
                 },
                 {
-                    "required": false,
-                    "name": "selected",
-                    "defaultValue": "false",
+                    "name": "select",
+                    "defaultValue": "output<string>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
-                    "type": "boolean",
-                    "decorators": []
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 34
+                },
+                {
+                    "name": "selected",
+                    "defaultValue": "input(false, {\n    transform: (value: boolean | string) =>\n      typeof value === 'string' ? value === '' : value,\n  })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29
                 }
             ],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onSelectOption",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'click'"
+                        }
+                    ],
+                    "modifierKind": [
+                        170
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [],
+            "hostListeners": [
+                {
+                    "name": "click",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36
+                }
+            ],
             "standalone": true,
             "imports": [
                 {
@@ -487,12 +646,12 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgClass } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  booleanAttribute,\n} from '@angular/core';\n\n@Component({\n  selector: 'crs-select-option',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './select-option.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectOptionComponent {\n  @Input({ required: true }) option: string;\n  @Input({ required: true }) optionLabel: string;\n  @Input({ required: true }) description: string;\n  @Input({ transform: booleanAttribute }) selected: boolean = false;\n}\n",
+            "sourceCode": "import { NgClass } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  HostListener,\n  input,\n  output,\n} from '@angular/core';\n\n@Component({\n  selector: 'crs-select-option',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './select-option.component.html',\n  styles: `\n    :host {\n      flex: 1;\n    }\n  `,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectOptionComponent {\n  /**\n   * uniquely identify option from others\n   */\n  id = input.required<string>();\n  optionLabel = input.required<string>();\n  description = input.required<string>();\n  selected = input(false, {\n    transform: (value: boolean | string) =>\n      typeof value === 'string' ? value === '' : value,\n  });\n\n  select = output<string>();\n\n  @HostListener('click') onSelectOption() {\n    this.select.emit(this.id());\n  }\n}\n\nexport type SelectionOptionModel = {\n  id: string;\n  optionLabel: string;\n  description: string;\n};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "\n",
+            "stylesData": "\n    :host {\n      flex: 1;\n    }\n  \n",
             "extends": [],
-            "templateData": "<div\n  [class]=\"selected ? 'bg-dark-cyan text-white hover:text-dark-grey-blue' : ''\"\n  [ngClass]=\"[\n    'h-[140px] md:h-full',\n    'w-full',\n    'bg-[#f4f1eb]',\n    'hover:bg-pale-orange hover:text-base',\n    'py-6 px-[25px] md:pt-8 md:px-7',\n    'text-left',\n    'rounded-lg'\n  ]\"\n>\n  <h4 class=\"pb-6\">{{ optionLabel }}</h4>\n  <p>{{ description }}</p>\n</div>\n"
+            "templateData": "<div\n  [class]=\"\n    selected() ? 'bg-dark-cyan text-white hover:text-dark-grey-blue' : ''\n  \"\n  [ngClass]=\"[\n    'h-[140px] md:h-full',\n    'bg-[#f4f1eb]',\n    'hover:bg-pale-orange hover:text-base',\n    'py-6 px-[25px] md:pt-8 md:px-7',\n    'text-left',\n    'rounded-lg'\n  ]\"\n>\n  <h4 class=\"pb-6\">{{ optionLabel() }}</h4>\n  <p>{{ description() }}</p>\n</div>\n"
         }
     ],
     "modules": [
@@ -608,6 +767,17 @@
                 "deprecationMessage": "",
                 "description": "",
                 "kind": 187
+            },
+            {
+                "name": "SelectionOptionModel",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "literal type",
+                "file": "src/app/shared/ui/select-option/select-option.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 187
             }
         ],
         "enumerations": [],
@@ -691,6 +861,19 @@
                     "subtype": "typealias",
                     "rawtype": "literal type",
                     "file": "src/app/core/ui/footer/footer.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 187
+                }
+            ],
+            "src/app/shared/ui/select-option/select-option.component.ts": [
+                {
+                    "name": "SelectionOptionModel",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "literal type",
+                    "file": "src/app/shared/ui/select-option/select-option.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -796,7 +979,16 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/option-group-selector/option-group-selector.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "OptionGroupSelectorComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -804,8 +996,8 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "SelectOptionComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coveragePercent": 12,
+                "coverageCount": "1/8",
                 "status": "low"
             },
             {
