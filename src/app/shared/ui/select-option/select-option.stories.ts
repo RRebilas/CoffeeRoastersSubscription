@@ -5,6 +5,7 @@ import { SelectOptionComponent } from './select-option.component';
 const meta: Meta<SelectOptionComponent> = {
   component: SelectOptionComponent,
   title: 'SelectOptionComponent',
+  tags: ['autodocs'],
   args: {
     optionLabel: 'Capsule' as any,
     description: 'Compatible with Nespresso systems and similar brewers' as any,

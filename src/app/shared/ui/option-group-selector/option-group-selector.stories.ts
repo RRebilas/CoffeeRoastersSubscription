@@ -17,6 +17,7 @@ const meta: Meta<OptionGroupSelectorComponent> = {
   title: 'OptionGroupSelectorComponent',
   component: OptionGroupSelectorComponent,
   decorators: [moduleMetadata({ imports: [ReactiveFormsModule, FormsModule] })],
+  tags: ['autodocs'],
   render: (args: OptionGroupSelectorComponent) => ({
     props: {
       ...args,
