@@ -6,6 +6,7 @@ import {
   input,
   output,
 } from '@angular/core';
+import inputBooleanTransform from '@app/shared/utils/input-boolean-transform';
 
 @Component({
   selector: 'crs-select-option',
@@ -26,10 +27,7 @@ export class SelectOptionComponent {
   id = input.required<string>();
   optionLabel = input.required<string>();
   description = input.required<string>();
-  selected = input(false, {
-    transform: (value: boolean | string) =>
-      typeof value === 'string' ? value === '' : value,
-  });
+  selected = input(false, { ...inputBooleanTransform });
 
   select = output<string>();
 

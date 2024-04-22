@@ -39,3 +39,8 @@ export const Default: Story = {
   name: 'Default closed',
   args: { title: 'What type of coffee?' as any },
 };
+
+export const Disabled: Story = {
+  name: 'Disabled closed',
+  args: { title: 'What type of coffee?' as any, disabled: true as any },
+};

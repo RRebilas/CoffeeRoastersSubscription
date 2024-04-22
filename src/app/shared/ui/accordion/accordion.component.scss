@@ -1,0 +1,24 @@
+mat-icon {
+  transition: 0.2s;
+  width: 19px;
+  height: 13px;
+  fill: #0e8784;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+:host {
+  &:hover {
+    mat-icon {
+      fill: #66d2cf;
+    }
+  }
+
+  ::ng-deep {
+    cdk-accordion-item.disabled {
+      opacity: 0.5;
+    }
+  }
+}

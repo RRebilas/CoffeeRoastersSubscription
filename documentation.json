@@ -43,7 +43,7 @@
     "components": [
         {
             "name": "AccordionComponent",
-            "id": "component-AccordionComponent-8c7a7e25a0275f72129d5a8b0eb7d157c050fb20486f877b29eaa842d956bc3685d8553a0c53e6355805c6887644f92aa50502216707582f67ce1e980e92386a",
+            "id": "component-AccordionComponent-fec11ad46879671b16d7fdf1f8f2b81b7ef8d848303807fb92a48c97aa779bee4103ff13094261c22d69b4586eba9c808cb4324f979f3af04c83a7abf773b766",
             "file": "src/app/shared/ui/accordion/accordion.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -53,9 +53,7 @@
             "providers": [],
             "selector": "crs-accordion",
             "styleUrls": [],
-            "styles": [
-                ""
-            ],
+            "styles": [],
             "templateUrl": [
                 "./accordion.component.html"
             ],
@@ -65,6 +63,26 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "disabled",
+                    "defaultValue": "input(false, { ...inputBooleanTransform })",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "index",
+                    "defaultValue": "input<number>(0)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
                     "name": "title",
                     "defaultValue": "input.required<string>()",
                     "deprecated": false,
@@ -72,7 +90,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 }
             ],
             "methodsClass": [],
@@ -93,12 +111,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CdkAccordionModule } from '@angular/cdk/accordion';\nimport { ChangeDetectionStrategy, Component, input } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\n\n@Component({\n  selector: 'crs-accordion',\n  standalone: true,\n  imports: [CdkAccordionModule, MatIcon],\n  templateUrl: './accordion.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class AccordionComponent {\n  title = input.required<string>();\n}\n",
+            "sourceCode": "import { CdkAccordionModule } from '@angular/cdk/accordion';\nimport { ChangeDetectionStrategy, Component, input } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\nimport inputBooleanTransform from '@app/shared/utils/input-boolean-transform';\n\n@Component({\n  selector: 'crs-accordion',\n  standalone: true,\n  imports: [CdkAccordionModule, MatIcon],\n  templateUrl: './accordion.component.html',\n  styleUrl: './accordion.component.scss',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class AccordionComponent {\n  title = input.required<string>();\n  disabled = input(false, { ...inputBooleanTransform });\n  index = input<number>(0);\n}\n",
+            "styleUrl": "./accordion.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "\n",
+            "stylesData": "",
             "extends": [],
-            "templateData": "<cdk-accordion>\n  <cdk-accordion-item #accordionItem=\"cdkAccordionItem\" tabindex=\"0\">\n    <div class=\"flex justify-between\">\n      <h3 class=\"text-3xl\">{{ title() }}</h3>\n      <mat-icon svgIcon=\"icon-arrow\"></mat-icon>\n    </div>\n  </cdk-accordion-item>\n</cdk-accordion>\n"
+            "templateData": "<cdk-accordion-item\n  #accordionItem=\"cdkAccordionItem\"\n  tabindex=\"0\"\n  role=\"button\"\n  [disabled]=\"disabled()\"\n  [attr.id]=\"'accordion-header-' + index()\"\n  [attr.aria-expanded]=\"accordionItem.expanded\"\n  [attr.aria-controls]=\"'accordion-body' + index()\"\n>\n  <div\n    class=\"flex justify-between items-center cursor-pointer\"\n    (click)=\"accordionItem.toggle()\"\n    (keydown)=\"accordionItem.toggle()\"\n    tabindex=\"0\"\n  >\n    <h3 class=\"text-3xl text-grey select-none\">{{ title() }}</h3>\n    <mat-icon\n      class=\"w-[19px] h-[13px]\"\n      [class.rotated]=\"accordionItem.expanded\"\n      svgIcon=\"arrow\"\n    ></mat-icon>\n  </div>\n  <div\n    role=\"region\"\n    [style.display]=\"accordionItem.expanded ? '' : 'none'\"\n    [attr.id]=\"'accordion-body-' + index()\"\n    [attr.labelledby]=\"'accordion-header-' + index()\"\n  >\n    <ng-content></ng-content>\n  </div>\n</cdk-accordion-item>\n"
         },
         {
             "name": "AppComponent",
@@ -243,7 +262,7 @@
         },
         {
             "name": "FooterComponent",
-            "id": "component-FooterComponent-d39d205b0efbf075a16691b6a5b7cbfe4770fd19ea246794f1c5c140581ba7f98a3ed3f4b3d28ae0acb718780438a99981c37430a48526ffaaa4e46b70e53a7b",
+            "id": "component-FooterComponent-f7c9ee150f36b3dd53036624c4a45dfbc20d3634724c25bc07ed1a4f369989899ef42ecabfd89fb913db712cec3f667c37616b54015fa09a84a3097f0f52b125",
             "file": "src/app/core/ui/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -253,7 +272,7 @@
             "selector": "crs-footer",
             "styleUrls": [],
             "styles": [
-                "\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    "
+                "\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n        fill: #fefcf7;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    "
             ],
             "templateUrl": [
                 "./footer.component.html"
@@ -271,7 +290,7 @@
                     "type": "[]",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 41
                 },
                 {
                     "name": "links",
@@ -281,7 +300,7 @@
                     "type": "Link[]",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 26
                 }
             ],
             "methodsClass": [],
@@ -302,10 +321,10 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\n\n@Component({\n  selector: 'crs-footer',\n  standalone: true,\n  imports: [MatIcon, CommonModule],\n  templateUrl: './footer.component.html',\n  styles: [\n    `\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    `,\n  ],\n})\nexport class FooterComponent {\n  links: Link[] = [\n    {\n      name: 'home',\n      url: '',\n    },\n    {\n      name: 'about us',\n      url: '',\n    },\n    {\n      name: 'create your plan',\n      url: '',\n    },\n  ];\n\n  icons = ['facebook', 'instagram', 'twitter'];\n}\n\ntype Link = {\n  name: string;\n  url: string;\n};\n",
+            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\n\n@Component({\n  selector: 'crs-footer',\n  standalone: true,\n  imports: [MatIcon, CommonModule],\n  templateUrl: './footer.component.html',\n  styles: [\n    `\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n        fill: #fefcf7;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    `,\n  ],\n})\nexport class FooterComponent {\n  links: Link[] = [\n    {\n      name: 'home',\n      url: '',\n    },\n    {\n      name: 'about us',\n      url: '',\n    },\n    {\n      name: 'create your plan',\n      url: '',\n    },\n  ];\n\n  icons = ['facebook', 'instagram', 'twitter'];\n}\n\ntype Link = {\n  name: string;\n  url: string;\n};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
-            "stylesData": "\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    \n",
+            "stylesData": "\n      mat-icon {\n        width: 27px;\n        height: 27px;\n        font-size: 27px;\n        fill: #fefcf7;\n      }\n\n      mat-icon:hover {\n        fill: #fdd6ba;\n      }\n    \n",
             "extends": [],
             "templateData": "<div\n  [ngClass]=\"[\n    'bg-dark-grey-blue',\n    'w-full',\n    'flex-col',\n    'p-14',\n    'gap-12',\n    'centered',\n    'lg:flex-row lg:justify-between lg:px-14 lg:py-12'\n  ]\"\n>\n  <div class=\"flex gap-2 centered\">\n    <mat-icon svgIcon=\"coffee-beans\"></mat-icon>\n    <h4 class=\"text-white\">cofeeroasters</h4>\n  </div>\n\n  <div\n    class=\"flex flex-col md:flex-row gap-6 md:gap-8 md:pb-8 lg:pb-0 centered\"\n  >\n    @for (item of links; track $index) {\n    <ng-container *ngTemplateOutlet=\"link; context: item\"></ng-container>\n    }\n  </div>\n\n  <div class=\"flex gap-6 centered\">\n    @for (icon of icons; track $index) {\n    <a class=\"hover:cursor-pointer\">\n      <mat-icon class=\"hover:fill-pale-orange\" svgIcon=\"{{ icon }}\"></mat-icon>\n    </a>\n    }\n  </div>\n</div>\n\n<ng-template #link let-name=\"name\" let-url=\"url\">\n  <a class=\"text-grey text-menu uppercase font-bold hover:cursor-pointer\">\n    {{ name }}\n  </a>\n</ng-template>\n"
         },
@@ -589,7 +608,7 @@
         },
         {
             "name": "SelectOptionComponent",
-            "id": "component-SelectOptionComponent-e932a6496155db7bb5423a8a175e2b898bdc6616a2f2f05e29be51dd5d3df55190667811192fbefc2d236f4672ccab2b5f6be3a0512bb30155f1fbf276991ab1",
+            "id": "component-SelectOptionComponent-44ac193edbdabc988a038d6587ed06ca51107107c441b829a19f460968d6e3756115f5bd0595ec2b32ad56654c2e5928b78bda0e225fcc3925751f0ed5a11d62",
             "file": "src/app/shared/ui/select-option/select-option.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -618,7 +637,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 28
+                    "line": 29
                 },
                 {
                     "name": "id",
@@ -628,7 +647,7 @@
                     "type": "",
                     "optional": false,
                     "description": "<p>uniquely identify option from others</p>\n",
-                    "line": 26,
+                    "line": 27,
                     "rawdescription": "\n\nuniquely identify option from others\n"
                 },
                 {
@@ -639,7 +658,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 27
+                    "line": 28
                 },
                 {
                     "name": "select",
@@ -649,17 +668,17 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 34
+                    "line": 32
                 },
                 {
                     "name": "selected",
-                    "defaultValue": "input(false, {\n    transform: (value: boolean | string) =>\n      typeof value === 'string' ? value === '' : value,\n  })",
+                    "defaultValue": "input(false, { ...inputBooleanTransform })",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 29
+                    "line": 30
                 }
             ],
             "methodsClass": [
@@ -669,7 +688,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 36,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -693,7 +712,7 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 36
+                    "line": 34
                 }
             ],
             "standalone": true,
@@ -705,7 +724,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { NgClass } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  HostListener,\n  input,\n  output,\n} from '@angular/core';\n\n@Component({\n  selector: 'crs-select-option',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './select-option.component.html',\n  styles: `\n    :host {\n      flex: 1;\n    }\n  `,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectOptionComponent {\n  /**\n   * uniquely identify option from others\n   */\n  id = input.required<string>();\n  optionLabel = input.required<string>();\n  description = input.required<string>();\n  selected = input(false, {\n    transform: (value: boolean | string) =>\n      typeof value === 'string' ? value === '' : value,\n  });\n\n  select = output<string>();\n\n  @HostListener('click') onSelectOption() {\n    this.select.emit(this.id());\n  }\n}\n\nexport type SelectionOptionModel = {\n  id: string;\n  optionLabel: string;\n  description: string;\n};\n",
+            "sourceCode": "import { NgClass } from '@angular/common';\nimport {\n  ChangeDetectionStrategy,\n  Component,\n  HostListener,\n  input,\n  output,\n} from '@angular/core';\nimport inputBooleanTransform from '@app/shared/utils/input-boolean-transform';\n\n@Component({\n  selector: 'crs-select-option',\n  standalone: true,\n  imports: [NgClass],\n  templateUrl: './select-option.component.html',\n  styles: `\n    :host {\n      flex: 1;\n    }\n  `,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class SelectOptionComponent {\n  /**\n   * uniquely identify option from others\n   */\n  id = input.required<string>();\n  optionLabel = input.required<string>();\n  description = input.required<string>();\n  selected = input(false, { ...inputBooleanTransform });\n\n  select = output<string>();\n\n  @HostListener('click') onSelectOption() {\n    this.select.emit(this.id());\n  }\n}\n\nexport type SelectionOptionModel = {\n  id: string;\n  optionLabel: string;\n  description: string;\n};\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "\n    :host {\n      flex: 1;\n    }\n  \n",
@@ -1038,7 +1057,7 @@
                 "linktype": "component",
                 "name": "AccordionComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {

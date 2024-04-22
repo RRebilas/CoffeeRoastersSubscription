@@ -1,32 +1,18 @@
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
+import inputBooleanTransform from '@app/shared/utils/input-boolean-transform';
 
 @Component({
   selector: 'crs-accordion',
   standalone: true,
   imports: [CdkAccordionModule, MatIcon],
   templateUrl: './accordion.component.html',
-  styles: `
-    mat-icon {
-      transition: 0.2s;
-      width: 19px;
-      height: 13px;
-    }
-    .rotated {
-      transform: rotate(180deg);
-    }
-    mat-icon {
-      fill: #0e8784;
-    }
-
-    mat-icon:hover {
-      fill: #66d2cf;
-    }
-  `,
+  styleUrl: './accordion.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AccordionComponent {
   title = input.required<string>();
+  disabled = input(false, { ...inputBooleanTransform });
   index = input<number>(0);
 }
