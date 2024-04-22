@@ -42,6 +42,65 @@
     "directives": [],
     "components": [
         {
+            "name": "AccordionComponent",
+            "id": "component-AccordionComponent-8c7a7e25a0275f72129d5a8b0eb7d157c050fb20486f877b29eaa842d956bc3685d8553a0c53e6355805c6887644f92aa50502216707582f67ce1e980e92386a",
+            "file": "src/app/shared/ui/accordion/accordion.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "crs-accordion",
+            "styleUrls": [],
+            "styles": [
+                ""
+            ],
+            "templateUrl": [
+                "./accordion.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "input.required<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CdkAccordionModule",
+                    "type": "module"
+                },
+                {
+                    "name": "MatIcon"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { CdkAccordionModule } from '@angular/cdk/accordion';\nimport { ChangeDetectionStrategy, Component, input } from '@angular/core';\nimport { MatIcon } from '@angular/material/icon';\n\n@Component({\n  selector: 'crs-accordion',\n  standalone: true,\n  imports: [CdkAccordionModule, MatIcon],\n  templateUrl: './accordion.component.html',\n  styles: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class AccordionComponent {\n  title = input.required<string>();\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n",
+            "extends": [],
+            "templateData": "<cdk-accordion>\n  <cdk-accordion-item #accordionItem=\"cdkAccordionItem\" tabindex=\"0\">\n    <div class=\"flex justify-between\">\n      <h3 class=\"text-3xl\">{{ title() }}</h3>\n      <mat-icon svgIcon=\"icon-arrow\"></mat-icon>\n    </div>\n  </cdk-accordion-item>\n</cdk-accordion>\n"
+        },
+        {
             "name": "AppComponent",
             "id": "component-AppComponent-384f2a56c6a2ba598e27e36d2b89238b53798b638a9328df05d56fbcdf447b1b8e7be72ace80235de51f60f68e071e8ec817065e1c05ca2324952b7c1adb0c87",
             "file": "src/app/app.component.ts",
@@ -742,7 +801,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "() => {\n  addIcon('icon-coffee-beans', 'shared');\n  addIcon('logo', 'shared');\n  addIcon('icon-facebook', 'shared');\n  addIcon('icon-instagram', 'shared');\n  addIcon('icon-twitter', 'shared');\n  addIcon('icon-hamburger', 'shared', 'mobile');\n  addIcon('icon-close', 'shared', 'mobile');\n}"
+                "defaultValue": "() => {\n  addIcon('icon-coffee-beans', 'shared');\n  addIcon('logo', 'shared');\n  addIcon('icon-facebook', 'shared');\n  addIcon('icon-instagram', 'shared');\n  addIcon('icon-twitter', 'shared');\n  addIcon('icon-hamburger', 'shared', 'mobile');\n  addIcon('icon-close', 'shared', 'mobile');\n  addIcon('icon-arrow', 'plan', 'desktop');\n}"
             },
             {
                 "name": "serverConfig",
@@ -801,7 +860,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "() => {\n  addIcon('icon-coffee-beans', 'shared');\n  addIcon('logo', 'shared');\n  addIcon('icon-facebook', 'shared');\n  addIcon('icon-instagram', 'shared');\n  addIcon('icon-twitter', 'shared');\n  addIcon('icon-hamburger', 'shared', 'mobile');\n  addIcon('icon-close', 'shared', 'mobile');\n}"
+                    "defaultValue": "() => {\n  addIcon('icon-coffee-beans', 'shared');\n  addIcon('logo', 'shared');\n  addIcon('icon-facebook', 'shared');\n  addIcon('icon-instagram', 'shared');\n  addIcon('icon-twitter', 'shared');\n  addIcon('icon-hamburger', 'shared', 'mobile');\n  addIcon('icon-close', 'shared', 'mobile');\n  addIcon('icon-arrow', 'plan', 'desktop');\n}"
                 }
             ],
             "src/app/app.config.ts": [
@@ -971,6 +1030,15 @@
                 "name": "Link",
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/ui/accordion/accordion.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AccordionComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

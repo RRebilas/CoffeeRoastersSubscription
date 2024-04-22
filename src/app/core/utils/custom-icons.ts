@@ -10,6 +10,7 @@ export const initializeIcons = () => {
   addIcon('icon-twitter', 'shared');
   addIcon('icon-hamburger', 'shared', 'mobile');
   addIcon('icon-close', 'shared', 'mobile');
+  addIcon('icon-arrow', 'plan', 'desktop');
 };
 
 export const addIcon = (

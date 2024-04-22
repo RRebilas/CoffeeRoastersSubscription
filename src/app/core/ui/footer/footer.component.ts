@@ -13,6 +13,7 @@ import { MatIcon } from '@angular/material/icon';
         width: 27px;
         height: 27px;
         font-size: 27px;
+        fill: #fefcf7;
       }
 
       mat-icon:hover {

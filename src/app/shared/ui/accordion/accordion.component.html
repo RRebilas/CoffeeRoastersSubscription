@@ -1,0 +1,30 @@
+<cdk-accordion-item
+  #accordionItem="cdkAccordionItem"
+  tabindex="0"
+  role="button"
+  [attr.id]="'accordion-header-' + index()"
+  [attr.aria-expanded]="accordionItem.expanded"
+  [attr.aria-controls]="'accordion-body' + index()"
+>
+  <div
+    class="flex justify-between items-center"
+    (click)="accordionItem.toggle()"
+    (keydown)="accordionItem.toggle()"
+    tabindex="0"
+  >
+    <h3 class="text-3xl text-grey">{{ title() }}</h3>
+    <mat-icon
+      class="w-[19px] h-[13px]"
+      [class.rotated]="accordionItem.expanded"
+      svgIcon="arrow"
+    ></mat-icon>
+  </div>
+  <div
+    role="region"
+    [style.display]="accordionItem.expanded ? '' : 'none'"
+    [attr.id]="'accordion-body-' + index()"
+    [attr.labelledby]="'accordion-header-' + index()"
+  >
+    <ng-content></ng-content>
+  </div>
+</cdk-accordion-item>
