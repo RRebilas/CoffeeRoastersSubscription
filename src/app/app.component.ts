@@ -7,7 +7,7 @@ import { HeaderComponent } from './core/ui/header/header.component';
 import { initializeIcons } from './core/utils/custom-icons';
 
 @Component({
-  selector: 'app-root',
+  selector: 'crs-root',
   standalone: true,
   imports: [
     CommonModule,
@@ -20,7 +20,6 @@ import { initializeIcons } from './core/utils/custom-icons';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'CoffeeRoastersSubscription';
   constructor() {
     initializeIcons();
   }

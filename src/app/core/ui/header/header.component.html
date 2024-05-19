@@ -6,9 +6,9 @@
 
   <div class="flex centered">
     @if (isSmallScreen$ | async) {
-    <ng-container [ngTemplateOutlet]="mobileMenu"></ng-container>
+      <ng-container [ngTemplateOutlet]="mobileMenu"></ng-container>
     } @else {
-    <ng-container [ngTemplateOutlet]="linksContainer"></ng-container>
+      <ng-container [ngTemplateOutlet]="linksContainer"></ng-container>
     }
   </div>
 </div>
@@ -16,9 +16,12 @@
 <ng-template #linksContainer>
   <div [ngClass]="['flex flex-col centered gap-8', 'md:flex-row']">
     @for (item of links; track $index) {
-    <a class="text-xl md:text-menu" [routerLink]="item.link">{{
-      item.content
-    }}</a>
+      <a
+        class="text-xl md:text-menu"
+        [routerLink]="item.link"
+        (click)="isMenuOpen = false"
+        >{{ item.content }}</a
+      >
     }
   </div>
 </ng-template>
