@@ -1,4 +1,4 @@
-<div
+<section
   [ngClass]="[
     'w-full',
     'h-[500px]',
@@ -24,16 +24,42 @@
     </span>
     <crs-button label="Create your plan"></crs-button>
   </div>
-</div>
+</section>
 
-<h3 class="text-[2.5rem] leading-[70px] text-center">our collection</h3>
+<!-- collection -->
+<section class="collection">
+  <h3 class="text-[2.5rem] leading-[70px] text-center">our collection</h3>
 
-@for (card of coffeeCards; track $index) {
-  <div class="mb-12">
-    <crs-card
-      [title]="card.title"
-      [description]="card.description"
-      [imgSrc]="card.src"
-    ></crs-card>
-  </div>
-}
+  @for (card of coffeeCards; track $index) {
+    <div class="mb-12">
+      <crs-card
+        [title]="card.title"
+        [description]="card.description"
+        [imgData]="{ w: 200, h: 151, src: card.src }"
+      ></crs-card>
+    </div>
+  }
+</section>
+
+<!-- why choose us -->
+<section
+  class="perks centered flex-col gap-6 text-light-cream bg-[#2c343e] text-center"
+  [ngClass]="['pt-16', 'pb-7']"
+>
+  <h3 class="text-[1.75rem]">Why choose us?</h3>
+  <span [ngClass]="['w-[280px]', 'text-[0.9375rem]']">
+    A large part of our role is choosing which particular coffees will be
+    featured in our range. This means working closely with the best coffee
+    growers to give you a more impactful experience on every level.
+  </span>
+
+  @for (card of perksCards; track $index) {
+    <div class="mb-12">
+      <crs-card
+        [title]="card.title"
+        [description]="card.description"
+        [imgData]="{ w: 72, h: 72, src: card.src }"
+      ></crs-card>
+    </div>
+  }
+</section>

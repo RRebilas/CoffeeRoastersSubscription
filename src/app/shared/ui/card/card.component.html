@@ -1,10 +1,15 @@
-<div [ngClass]="['centered', 'flex-col', 'gap-6']">
-  <img width="200" height="151" [src]="imgSrc()" alt="{{ title() }} package" />
+<div [ngClass]="['gap-6']">
+  <img
+    [width]="imgData().w"
+    [height]="imgData().h"
+    [ngSrc]="imgData().src"
+    alt="{{ title() }} package"
+  />
 
   <div [ngClass]="['text-center']">
-    <h4 class="text-xl text-dark-grey-blue mb-4">{{ title() }}</h4>
+    <h4 class="text-xl mb-4">{{ title() }}</h4>
 
-    <span class="text-[15px] leading-[25px] text-dark-grey-blue">
+    <span class="text-[15px] leading-[25px]">
       {{ description() }}
     </span>
   </div>

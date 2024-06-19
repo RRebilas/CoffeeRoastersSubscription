@@ -34,7 +34,7 @@ import { Link } from '../../../shared/data-access/models';
         z-index: 1000;
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 1) 60%,
+          rgba(255, 255, 255, 1) 75%,
           rgba(255, 255, 255, 0) 100%
         );
       }
